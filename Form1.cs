@@ -6,5 +6,10 @@ namespace WinFormsApp1
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"Hello {textBox1.Text} {textBox2.Text}");
+        }
     }
 }
