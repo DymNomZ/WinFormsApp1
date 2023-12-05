@@ -33,6 +33,8 @@
             label1 = new Label();
             textBox2 = new TextBox();
             label2 = new Label();
+            progressBar1 = new ProgressBar();
+            button2 = new Button();
             SuspendLayout();
             // 
             // button1
@@ -41,7 +43,7 @@
             button1.Name = "button1";
             button1.Size = new Size(94, 29);
             button1.TabIndex = 0;
-            button1.Text = "button1";
+            button1.Text = "Add progress!";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
@@ -79,11 +81,30 @@
             label2.Text = "School";
             label2.TextAlign = ContentAlignment.TopCenter;
             // 
+            // progressBar1
+            // 
+            progressBar1.Location = new Point(265, 235);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(306, 29);
+            progressBar1.TabIndex = 5;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(356, 351);
+            button2.Name = "button2";
+            button2.Size = new Size(94, 29);
+            button2.TabIndex = 6;
+            button2.Text = "End Program";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(button2);
+            Controls.Add(progressBar1);
             Controls.Add(label2);
             Controls.Add(textBox2);
             Controls.Add(label1);
@@ -102,5 +123,7 @@
         private Label label1;
         private TextBox textBox2;
         private Label label2;
+        private ProgressBar progressBar1;
+        private Button button2;
     }
 }
