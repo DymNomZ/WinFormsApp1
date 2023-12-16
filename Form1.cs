@@ -1,28 +1,39 @@
+using System;
+using System.IO;
+
 namespace WinFormsApp1
 {
     public partial class Form1 : Form
     {
+        private System.Windows.Forms.Timer tmr;
+        public static string GetRandomLineFromFile(string filePath)
+        {
+            if (!File.Exists(filePath))
+            {
+                throw new FileNotFoundException($"File not found: {filePath}");
+            }
+
+            int lineCount = File.ReadAllLines(filePath).Length;
+            int randomLineNumber = new Random().Next(0, lineCount);
+            System.Diagnostics.Debug.WriteLine(randomLineNumber);
+            String lol = File.ReadLines(filePath).ElementAtOrDefault(randomLineNumber - 1); ;
+
+            return lol;
+        }
+
         public Form1()
         {
             InitializeComponent();
-            label1.Text = "First Name";
-            label2.Text = "School Name";
-            progressBar1.Value = 0;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (progressBar1.Value >= 0 && progressBar1.Value < 100)
+            string filePath = @"C:\Users\User\Desktop\C#\WinFormsApp1\READMe.txt";
+            string randomLine = GetRandomLineFromFile(filePath);
+            richTextBox1.Text = randomLine;
+            tmr = new System.Windows.Forms.Timer();
+            tmr.Tick += delegate
             {
-                progressBar1.Value += 10;
-            }
-            else progressBar1.Value = 0;
-            //MessageBox.Show($"Hello {textBox1.Text} {textBox2.Text}");
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            Close();
+                this.Close();
+            };
+            tmr.Interval = (int)TimeSpan.FromSeconds(10).TotalMilliseconds;
+            tmr.Start();
         }
     }
 }
