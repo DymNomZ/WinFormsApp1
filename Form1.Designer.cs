@@ -28,13 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             richTextBox1 = new RichTextBox();
             SuspendLayout();
             // 
             // richTextBox1
             // 
-            richTextBox1.BackColor = SystemColors.Menu;
+            richTextBox1.AcceptsTab = true;
+            richTextBox1.BackColor = Color.FromArgb(255, 224, 192);
             richTextBox1.BorderStyle = BorderStyle.None;
+            richTextBox1.Font = new Font("Monotype Corsiva", 19.8000011F, FontStyle.Italic, GraphicsUnit.Point, 0);
             richTextBox1.Location = new Point(16, 118);
             richTextBox1.Margin = new Padding(7);
             richTextBox1.Name = "richTextBox1";
@@ -47,6 +50,8 @@
             // 
             AutoScaleDimensions = new SizeF(18F, 45F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
+            BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(1133, 535);
             Controls.Add(richTextBox1);
             Font = new Font("Segoe UI", 20F);

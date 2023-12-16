@@ -24,6 +24,8 @@ namespace WinFormsApp1
         public Form1()
         {
             InitializeComponent();
+            int songNum = new Random().Next(1, 59);
+            string youtubeLink = "https://www.youtube.com/watch?v=S_OTz-lpDjw&list=PL8ecln3vdBdLioL8UZ-wZFp6sjnM_SbML&index=1";
             string filePath = @"C:\Users\User\Desktop\C#\WinFormsApp1\READMe.txt";
             string randomLine = GetRandomLineFromFile(filePath);
             richTextBox1.Text = randomLine;
@@ -32,8 +34,10 @@ namespace WinFormsApp1
             {
                 this.Close();
             };
-            tmr.Interval = (int)TimeSpan.FromSeconds(10).TotalMilliseconds;
+            tmr.Interval = (int)TimeSpan.FromSeconds(20).TotalMilliseconds;
             tmr.Start();
+            System.Diagnostics.Debug.WriteLine(youtubeLink);
+            System.Diagnostics.Process.Start("rundll32", "url.dll,FileProtocolHandler https://www.youtube.com/watch?v=S_OTz-lpDjw&list=PL8ecln3vdBdLioL8UZ-wZFp6sjnM_SbML&index=1");
         }
     }
 }
